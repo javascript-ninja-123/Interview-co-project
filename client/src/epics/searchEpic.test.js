@@ -3,9 +3,12 @@ import { Observable } from 'rxjs/Observable';
 import {
   SEARCH_TUTOR,
   SEACH_TUTOR_FUFILLED,
-  SEARCH_TUTOR_FAILED
+  SEARCH_TUTOR_FAILED,
+  FETCH_TUTORS,
+  FETCH_TUTORS_FUFILLED,
+  FETCH_TUTORS_FAILED
 } from '../actions/type';
-import {findTutorEpic$} from './searchEpic';
+import {findTutorEpic$,fetchTutorsEpic$} from './searchEpic';
 
 
 
@@ -66,5 +69,35 @@ describe('searchEpic', () => {
     expect(result).toEqual([
         { type: SEARCH_TUTOR_FAILED, payload:'save failed' }
      ])
+  })
+})
+
+
+describe('findTutorEpic', () => {
+  const action$ = ActionsObservable.of({type: FETCH_TUTORS, payload: {url: 'https://jsonplaceholder.typicode.com/users'}});
+  it('dispatches the correct actions when it is successful', () => {
+    const ajaxCenter = {
+      getAllData:() => Observable.of(mockResponse)
+    }
+    fetchTutorsEpic$(action$,store,{ajaxCenter})
+    .toArray()
+    .subscribe(action => {
+      expect(action).toEqual([
+          { type: FETCH_TUTORS_FUFILLED, payload:mockResponse }
+       ])
+    })
+  })
+
+  it('should dispatch an error when authenticating has failed', () => {
+    const ajaxCenter = {
+      getAllData:() => Observable.throw('fetch tutors failed')
+    }
+    fetchTutorsEpic$(action$,store,{ajaxCenter})
+    .toArray()
+    .subscribe(action => {
+      expect(action).toEqual([
+          { type: FETCH_TUTORS_FAILED, payload:'fetch tutors failed' }
+       ])
+    })
   })
 })

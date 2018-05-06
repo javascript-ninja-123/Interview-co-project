@@ -1,5 +1,5 @@
 import { combineEpics } from 'redux-observable';
-import {findTutorEpic$} from './searchEpic';
+import {findTutorEpic$,fetchTutorsEpic$} from './searchEpic';
 
 // import {CLICK,CLEAR,FETCH_USER,FETCH_HACKER_NEWS,SEARCH_BEER,CANCEL_SEARCH_BEER} from '../actions/type';
 // import {clearClick,fetchUserFufilled,fetchHackerNewsFufilled,searchBeerFufilled,serchBeerError} from '../actions';
@@ -70,7 +70,8 @@ import {findTutorEpic$} from './searchEpic';
 
 
 const rootEpic = combineEpics(
-  findTutorEpic$
+  findTutorEpic$,
+  fetchTutorsEpic$
 )
 
 

@@ -1,0 +1,6 @@
+@import '../../css/main';
+
+.Card{
+  @extend .page-margin-top;
+  @extend .flex-row-center-center;
+}

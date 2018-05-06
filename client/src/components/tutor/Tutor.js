@@ -1,12 +1,30 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {searchTutor} from '../../actions';
+import {searchTutor,fetchTutors} from '../../actions';
 import './Tutor.css';
-import {Search} from '../common/Search/Search';
+import {Search,CARD,List} from '../common';
 
 class Tutor extends Component {
 
+    componentDidMount() {
+      this.props.fetchTutors()
+    }
+
     onClick = searchedInput => this.props.searchTutor(searchedInput)
+
+    renderList = () => {
+      return this.props.tutorList.reduce((acc,val,index) => {
+        const listItem = <CARD key={index}
+        header={val.name}
+        description={val.email}
+        buttonName1='send message'
+        buttonName2='remove'
+        />
+        acc.push(listItem)
+        return acc;
+      },[])
+    }
+
 
     render() {
         return (
@@ -16,9 +34,17 @@ class Tutor extends Component {
                 buttonName='Search'
                 onClick={this.onClick}
               />
+              <List>
+                {this.renderList()}
+              </List>
             </div>
         );
     }
 }
 
-export default connect(null,{searchTutor})(Tutor);
+const  mapStateToProps = ({search}) =>  {
+  const {loading,tutorList,error} = search;
+  return{loading,tutorList,error}
+}
+
+export default connect(mapStateToProps,{searchTutor,fetchTutors})(Tutor);

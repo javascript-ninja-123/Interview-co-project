@@ -6,27 +6,27 @@
   list-style: none;
   padding: 0; }
 
-.page-margin-top {
+.page-margin-top, .Card {
   margin-top: 2rem; }
 
-.page-width, .Tutor {
+.page-width {
   width: 80vw;
   margin: 0 auto; }
 
-.flex-row, .flex-row-align-center, .flex-row-space-around, .Tutor .ui.form, .flex-row-space-between, .flex-row-center-center {
+.flex-row, .flex-row-align-center, .flex-row-space-around, .flex-row-space-between, .flex-row-center-center, .Card {
   display: flex;
   flex-direction: row; }
 
-.flex-row-align-center, .flex-row-space-around, .Tutor .ui.form, .flex-row-space-between {
+.flex-row-align-center, .flex-row-space-around, .flex-row-space-between {
   align-items: center; }
 
-.flex-row-space-around, .Tutor .ui.form {
+.flex-row-space-around {
   justify-content: space-around; }
 
 .flex-row-space-between {
   justify-content: space-between; }
 
-.flex-row-center-center {
+.flex-row-center-center, .Card {
   justify-content: center;
   align-items: center; }
 
@@ -44,10 +44,3 @@
 .flex-column-center-center {
   justify-content: center;
   align-items: center; }
-
-.Tutor .ui.form .field {
-  flex: 5; }
-
-.Tutor .ui.form > * {
-  margin: 0;
-  flex: 1; }

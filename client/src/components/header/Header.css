@@ -1,13 +1,17 @@
 .page-padding-bottom, .Header {
   padding-bottom: 2rem; }
 
+.remove-default-margin {
+  margin: 0;
+  list-style: none;
+  padding: 0; }
+
 .page-margin-top {
   margin-top: 2rem; }
 
 .page-width {
   width: 80vw;
-  margin-left: 10vw;
-  margin-right: 10vw; }
+  margin: 0 auto; }
 
 .flex-row, .flex-row-align-center, .flex-row-space-around, .flex-row-space-between, .flex-row-center-center {
   display: flex;

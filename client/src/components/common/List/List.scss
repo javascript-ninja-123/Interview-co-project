@@ -1,0 +1,7 @@
+@import '../../css/main';
+
+.List{
+  @extend .remove-default-margin;
+  @extend .page-width;
+  @extend .page-margin-top;
+}

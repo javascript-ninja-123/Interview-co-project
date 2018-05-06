@@ -1,10 +1,13 @@
 import {Observable} from 'rxjs'
 import {
-SEARCH_TUTOR
+SEARCH_TUTOR,
+FETCH_TUTORS
 } from '../actions/type';
 import {
   searchTutorFufilled,
-  searchTutorFailed
+  searchTutorFailed,
+  fetchTutorsFufilled,
+  fetchTutorsFailed
 } from '../actions'
 
 
@@ -17,3 +20,10 @@ action$.ofType(SEARCH_TUTOR)
   return  searchTutorFufilled(res)
 })
 .catch(err => Observable.of(searchTutorFailed(err)))
+
+
+export const fetchTutorsEpic$ = (action$,store,{ajaxCenter}) =>
+action$.ofType(FETCH_TUTORS)
+.switchMap(({payload}) => ajaxCenter.getAllData(payload.url))
+.map(res => fetchTutorsFufilled(res))
+.catch(err => Observable.of(fetchTutorsFailed(err)))
