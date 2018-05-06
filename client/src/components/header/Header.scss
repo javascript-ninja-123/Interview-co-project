@@ -1,0 +1,9 @@
+@import '../css/main';
+
+.Header{
+  width:100vw;
+  @extend .page-padding-bottom;
+  .nav-link--active{
+    color:gold !important;
+  }
+}

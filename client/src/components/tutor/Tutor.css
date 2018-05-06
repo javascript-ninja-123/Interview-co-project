@@ -1,0 +1,49 @@
+.page-padding-bottom {
+  padding-bottom: 2rem; }
+
+.page-margin-top {
+  margin-top: 2rem; }
+
+.page-width, .Tutor {
+  width: 80vw;
+  margin-left: 10vw;
+  margin-right: 10vw; }
+
+.flex-row, .flex-row-align-center, .flex-row-space-around, .Tutor .ui.form, .flex-row-space-between, .flex-row-center-center {
+  display: flex;
+  flex-direction: row; }
+
+.flex-row-align-center, .flex-row-space-around, .Tutor .ui.form, .flex-row-space-between {
+  align-items: center; }
+
+.flex-row-space-around, .Tutor .ui.form {
+  justify-content: space-around; }
+
+.flex-row-space-between {
+  justify-content: space-between; }
+
+.flex-row-center-center {
+  justify-content: center;
+  align-items: center; }
+
+.flex-column, .flex-column-start, .flex-column-center-center {
+  display: flex;
+  flex-direction: column; }
+
+.flex-column-reverse {
+  display: flex;
+  flex-direction: column-reverse; }
+
+.flex-column-start {
+  justify-content: flex-start; }
+
+.flex-column-center-center {
+  justify-content: center;
+  align-items: center; }
+
+.Tutor .ui.form .field {
+  flex: 5; }
+
+.Tutor .ui.form > * {
+  margin: 0;
+  flex: 1; }
